@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  taskapp
 //
-//  Created by 坂東明信 on 2018/02/24.
+//  Created by on 2018/02/24.
 //  Copyright © 2018年 asplate. All rights reserved.
 //
 

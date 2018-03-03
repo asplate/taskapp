@@ -10,11 +10,13 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
 
     @IBOutlet var tableView: UITableView!
+
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
     
     // Realmインスタンスを取得する
     let realm = try! Realm()
@@ -30,25 +32,44 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self as? UISearchBarDelegate
+        searchBar.delegate = self
         
-        /*
+        
+        
+ 
+    }
+    
+    /*
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let realm = try! Realm()
+        
+        if searchText.isEmpty {
+            toDoItems = realm.objects(category)
+        } else {
+            toDoItems = realm
+                .objects(category)
+                .filter("name BEGINSWITH %@", searchText)
+        }
+        
+        tableView.reloadData()
+    }
+ */
+    
+   /*
+    //serchボタンの処理
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         // 文字列で検索条件を指定します
         var selectCategory = realm.objects(Task.self).filter("category = searchBar.text")
         
         // NSPredicateを使って検索条件を指定します
         let predicate = NSPredicate(format: "category = searchBar.text")
         selectCategory = realm.objects(Task.self).filter(predicate)
- */
-    }
-    
-    //serchボタンの処理
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         //キーボードを閉じる
         self.view.endEditing(true)
     }
-    
+    */
     
 
     
@@ -146,6 +167,20 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     // 入力画面から戻ってきた時に TableView を更新させる
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let realm = try! Realm()
+        
+        if searchText.isEmpty {
+            taskArray = realm.objects(Task.self)
+        } else {
+            taskArray = realm
+                .objects(Task.self)
+                .filter("category BEGINSWITH %@", searchText)
+        }
+        
         tableView.reloadData()
     }
 

@@ -18,13 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="OtE-cZ-i01">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="jh7-c9-FHw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="BYZ-38-t0r" id="XJg-q8-6Am"/>
-                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="0Zb-1M-lix" detailTextLabel="206-oF-QUQ" style="IBUITableViewCellStyleSubtitle" id="21j-dG-xQo">
@@ -57,14 +54,13 @@
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dms-Hz-YDu">
                             <connections>
-                                <action selector="addTask:" destination="BYZ-38-t0r" id="cXH-eI-XYn"/>
                                 <segue destination="UK1-1n-bPy" kind="show" id="ksm-lg-B3e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="OtE-cZ-i01" id="QGQ-Bi-wrd"/>
-                        <outlet property="searchDisplayController" destination="2np-ny-ere" id="WO8-QX-kIK"/>
+                        <outlet property="searchBar" destination="jh7-c9-FHw" id="91M-Jq-l3L"/>
+                        <outlet property="searchDisplayController" destination="9OV-IU-Dmg" id="oH8-cX-8wy"/>
                         <outlet property="tableView" destination="p8a-F6-3HJ" id="XSH-KW-icV"/>
                         <segue destination="UK1-1n-bPy" kind="show" identifier="cellSegue" id="YnI-tl-TbX"/>
                     </connections>
@@ -73,10 +69,17 @@
                 <searchDisplayController id="2np-ny-ere">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="rhY-JT-mgS"/>
-                        <outlet property="searchBar" destination="OtE-cZ-i01" id="prJ-BU-0PI"/>
                         <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Gpx-kC-ncT"/>
                         <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="15Q-X9-W5E"/>
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="qTR-1i-qSr"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="9OV-IU-Dmg">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="dbZ-Eo-TmZ"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="OJe-bi-41p"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="RAP-py-pmG"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="F1l-hY-0mw"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -167,9 +170,7 @@
                         <viewLayoutGuide key="safeArea" id="sUe-hh-93p"/>
                     </view>
                     <connections>
-                        <outlet property="category" destination="AP0-bZ-aP7" id="QKH-xo-K2U"/>
-                        <outlet property="categoryTextField" destination="AP0-bZ-aP7" id="6ku-Tg-PZg"/>
-                        <outlet property="category_name" destination="AP0-bZ-aP7" id="aAP-6q-n9B"/>
+                        <outlet property="categoryTextField" destination="AP0-bZ-aP7" id="HJj-Ns-aab"/>
                         <outlet property="contentsTextView" destination="lFH-5u-R5M" id="un2-rr-XcE"/>
                         <outlet property="datePicker" destination="mwd-gY-xD5" id="1Bj-a5-yhX"/>
                         <outlet property="titleTextField" destination="i3s-Lo-Oh0" id="cgT-Vm-y3I"/>

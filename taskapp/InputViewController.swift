@@ -2,7 +2,7 @@
 //  InputViewController.swift
 //  taskapp
 //
-//  Created by 坂東明信 on 2018/02/24.
+//  Created by on 2018/02/24.
 //  Copyright © 2018年 asplate. All rights reserved.
 //
 
@@ -17,8 +17,9 @@ class InputViewController: UIViewController {
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
 
-
     @IBOutlet weak var categoryTextField: UITextField!
+    
+ 
     
     var task: Task!
     let realm = try! Realm()
